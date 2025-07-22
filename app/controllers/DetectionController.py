@@ -19,13 +19,18 @@ def update_detection():
         }
 
         db_ref = get_db()
+
+        # Save to historical list
         db_ref.child("detections").push(detection_data)
+
+        # Save to latest (singular path)
+        db_ref.child("detection").child("latest").set(detection_data)
 
         return jsonify({"message": "Detection data updated successfully."}), 200
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500
-    
+
 def get_latest_detection():
     try:
         db_ref = get_db()
