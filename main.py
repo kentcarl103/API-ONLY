@@ -4,6 +4,12 @@ from app.routes.Detection import detection_bp
 
 def create_app():
     app = Flask(__name__)
+
+
+    @app.route('/')
+    def index():
+        return {"message":"SmartServe API is running!"}
+
     app.register_blueprint(users_bp, url_prefix='/users')
     app.register_blueprint(detection_bp, url_prefix='/detection')
     return app
