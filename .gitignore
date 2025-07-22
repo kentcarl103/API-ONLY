@@ -1,8 +1,2 @@
 api-env/
-
-
-__pycache__
-*.pyc
-*.pyo
-
 firebase_credentials.json
