@@ -15,15 +15,12 @@ def update_detection():
         detection_data = {
             "vacant_chairs": vacant_chairs,
             "vacant_tables": vacant_tables,
-            "timestamp": datetime.utcnow().isoformat()
+            "time": datetime.utcnow().isoformat
         }
 
         db_ref = get_db()
 
-        # Save to historical list
-        db_ref.child("detections").push(detection_data)
-
-        # Save to latest (singular path)
+        
         db_ref.child("detection").child("latest").set(detection_data)
 
         return jsonify({"message": "Detection data updated successfully."}), 200
