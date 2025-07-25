@@ -15,7 +15,7 @@ def update_detection():
         detection_data = {
             "vacant_chairs": vacant_chairs,
             "vacant_tables": vacant_tables,
-            "time": datetime.utcnow().isoformat
+            "time": datetime.utcnow().isoformat()
         }
 
         db_ref = get_db()
